@@ -52,7 +52,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
             }
             return [...prev, { product, selectedVariant: { size, price, category }, quantity }];
         });
-        setIsOpen(true);
+        // setIsOpen(true); // User wants to add multiple items without popup
     };
 
     const removeFromCart = (productId: string, size: string, category: string) => {
