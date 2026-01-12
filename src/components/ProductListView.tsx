@@ -13,24 +13,24 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
     return (
         <div className="bg-white rounded-sm border border-brand-primary/10 overflow-hidden">
             {/* Table Header */}
-            <div className={`bg-brand-primary/5 border-b border-brand-primary/10 px-4 py-3 grid gap-4 font-medium text-xs uppercase tracking-wider text-brand-primary/60 ${showVariantHeaders ? 'grid-cols-12' : 'grid-cols-7'
+            <div className={`bg-brand-primary/5 border-b border-brand-primary/10 px-4 py-3 grid gap-4 font-medium text-xs uppercase tracking-wider text-brand-primary/60 ${showVariantHeaders ? 'grid-cols-4 md:grid-cols-12' : 'grid-cols-4 md:grid-cols-7'
                 }`}>
-                <div className="col-span-3">Product Name</div>
-                <div className="col-span-2">Collection</div>
+                <div className="col-span-4 md:col-span-3">Product Name</div>
+                <div className="hidden md:block md:col-span-2">Collection</div>
 
                 {showVariantHeaders ? (
                     // Classics: Show Economy/Inspired/Identical headers
-                    <div className="col-span-6 grid grid-cols-3 gap-2">
+                    <div className="hidden md:grid md:col-span-6 md:grid-cols-3 gap-2">
                         <div className="text-center">Economy</div>
                         <div className="text-center">Inspired</div>
                         <div className="text-center">Identical</div>
                     </div>
                 ) : (
                     // Signature/Top Quality: Just "Prices" header
-                    <div className="col-span-1">Prices</div>
+                    <div className="hidden md:block md:col-span-1">Prices</div>
                 )}
 
-                <div className="col-span-1"></div>
+                <div className="hidden md:block md:col-span-1"></div>
             </div>
 
             {/* Table Body */}
@@ -44,11 +44,11 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                     return (
                         <div
                             key={product.id}
-                            className={`px-4 py-4 grid gap-4 items-center hover:bg-brand-light/30 transition-colors group ${showVariantHeaders ? 'grid-cols-12' : 'grid-cols-7'
+                            className={`px-4 py-4 grid gap-4 items-center hover:bg-brand-light/30 transition-colors group ${showVariantHeaders ? 'grid-cols-4 md:grid-cols-12' : 'grid-cols-4 md:grid-cols-7'
                                 }`}
                         >
                             {/* Product Name */}
-                            <div className="col-span-3">
+                            <div className="col-span-4 md:col-span-3">
                                 <Link
                                     href={`/products/${product.id}`}
                                     className="font-medium text-brand-primary hover:text-brand-accent transition-colors"
@@ -58,7 +58,7 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                             </div>
 
                             {/* Collection Tag */}
-                            <div className="col-span-2">
+                            <div className="hidden md:block md:col-span-2">
                                 <span className="inline-block px-2 py-1 text-xs rounded-full bg-brand-primary/10 text-brand-primary">
                                     {product.collectionTag}
                                 </span>
@@ -67,7 +67,7 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                             {/* Prices */}
                             {showVariantHeaders ? (
                                 // Classics: Show 3 columns for Economy/Inspired/Identical
-                                <div className="col-span-6 grid grid-cols-3 gap-2 text-sm">
+                                <div className="hidden md:grid md:col-span-6 md:grid-cols-3 gap-2 text-sm">
                                     {/* Economy */}
                                     <div className="text-center">
                                         {economyVariants.length > 0 ? (
@@ -139,7 +139,7 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                                 </div>
                             ) : (
                                 // Signature/Top Quality: Single column for all prices
-                                <div className="col-span-1 text-sm">
+                                <div className="hidden md:block md:col-span-1 text-sm">
                                     <div className="space-y-1">
                                         {product.variants.map(v => (
                                             <div key={v.size} className="flex items-center gap-2 text-brand-primary/70">
@@ -159,7 +159,7 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                             )}
 
                             {/* Action */}
-                            <div className="col-span-1 text-right">
+                            <div className="hidden md:block md:col-span-1 text-right">
                                 <Link
                                     href={`/products/${product.id}`}
                                     className="inline-flex items-center gap-1 text-xs text-brand-accent opacity-0 group-hover:opacity-100 transition-opacity"

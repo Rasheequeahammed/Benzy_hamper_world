@@ -140,27 +140,27 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                             <h3 className="text-lg font-serif text-brand-primary border-b border-brand-primary/10 pb-2 inline-block">
                                 Olfactory Notes
                             </h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 text-brand-accent">
-                                        <Wind className="w-5 h-5" />
-                                        <span className="text-xs uppercase tracking-widest font-bold">Top</span>
+                            <div className="grid grid-cols-3 gap-2 sm:gap-6 pt-4">
+                                <div className="flex flex-col gap-1 sm:gap-2 text-center sm:text-left border-r border-brand-primary/10 last:border-0 pr-1 sm:pr-0">
+                                    <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-brand-accent">
+                                        <Wind className="w-4 h-4 sm:w-5 sm:h-5 text-brand-primary" />
+                                        <span className="text-[10px] sm:text-xs uppercase tracking-tighter sm:tracking-widest font-bold">Top</span>
                                     </div>
-                                    <p className="text-sm text-brand-primary/70">{product.notes.top}</p>
+                                    <p className="text-[11px] sm:text-sm text-brand-primary/70 leading-tight">{product.notes.top}</p>
                                 </div>
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 text-brand-accent">
-                                        <Sun className="w-5 h-5" />
-                                        <span className="text-xs uppercase tracking-widest font-bold">Heart</span>
+                                <div className="flex flex-col gap-1 sm:gap-2 text-center sm:text-left border-r border-brand-primary/10 last:border-0 px-1 sm:px-0">
+                                    <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-brand-accent">
+                                        <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-brand-primary" />
+                                        <span className="text-[10px] sm:text-xs uppercase tracking-tighter sm:tracking-widest font-bold">Heart</span>
                                     </div>
-                                    <p className="text-sm text-brand-primary/70">{product.notes.heart}</p>
+                                    <p className="text-[11px] sm:text-sm text-brand-primary/70 leading-tight">{product.notes.heart}</p>
                                 </div>
-                                <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 text-brand-accent">
-                                        <Droplets className="w-5 h-5" />
-                                        <span className="text-xs uppercase tracking-widest font-bold">Base</span>
+                                <div className="flex flex-col gap-1 sm:gap-2 text-center sm:text-left pl-1 sm:pl-0">
+                                    <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-brand-accent">
+                                        <Droplets className="w-4 h-4 sm:w-5 sm:h-5 text-brand-primary" />
+                                        <span className="text-[10px] sm:text-xs uppercase tracking-tighter sm:tracking-widest font-bold">Base</span>
                                     </div>
-                                    <p className="text-sm text-brand-primary/70">{product.notes.base}</p>
+                                    <p className="text-[11px] sm:text-sm text-brand-primary/70 leading-tight">{product.notes.base}</p>
                                 </div>
                             </div>
                         </div>
