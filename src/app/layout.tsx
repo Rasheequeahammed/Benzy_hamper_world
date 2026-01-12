@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer';
 import { cn } from '@/lib/utils';
 import { CartProvider } from '@/context/CartContext';
 import { CartDrawer } from '@/components/CartDrawer';
+import { MobileNav } from '@/components/MobileNav';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -39,7 +40,8 @@ export default function RootLayout({
                 <CartProvider>
                     <Navbar />
                     <CartDrawer />
-                    <main className="flex-grow">
+                    <MobileNav />
+                    <main className="flex-grow pb-20 md:pb-0">
                         {children}
                     </main>
                     <Footer />

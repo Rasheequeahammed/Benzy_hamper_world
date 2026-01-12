@@ -19,7 +19,7 @@ export function ProductCard({ product }: ProductCardProps) {
     const categories = Array.from(new Set(product.variants.map(v => v.category)));
 
     return (
-        <div className="group relative flex flex-col items-center bg-white p-6 transition-all duration-500 hover:shadow-xl">
+        <div className="group relative flex flex-col items-center bg-white p-3 md:p-6 transition-all duration-500 hover:shadow-xl">
 
             {/* Image Container with Hover Effect */}
             <div className="relative mb-6 aspect-[3/4] w-full overflow-hidden bg-gray-50">
@@ -40,10 +40,10 @@ export function ProductCard({ product }: ProductCardProps) {
                         {categories.join(' / ')}
                     </span>
                 )}
-                <h3 className="mb-2 text-lg font-serif font-medium text-brand-primary truncate">
+                <h3 className="mb-1 md:mb-2 text-sm md:text-lg font-serif font-medium text-brand-primary truncate">
                     {product.name}
                 </h3>
-                <p className="mb-4 font-sans text-sm font-semibold text-brand-accent">
+                <p className="mb-3 md:mb-4 font-sans text-xs md:text-sm font-semibold text-brand-accent">
                     from AED {lowestPrice.toFixed(2)}
                 </p>
 

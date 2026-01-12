@@ -74,14 +74,14 @@ export function CartDrawer() {
                                     <p className="text-sm text-gray-500 mb-1">{item.selectedVariant.category} - {item.selectedVariant.size}</p>
 
                                     {/* Quantity Controls */}
-                                    <div className="flex items-center gap-3 mt-2">
-                                        <div className="flex items-center gap-2 border border-brand-primary/20 rounded">
+                                    <div className="flex items-center gap-3 mt-4">
+                                        <div className="flex items-center gap-2 border border-brand-primary/20 rounded-sm overflow-hidden">
                                             <button
                                                 onClick={() => updateQuantity(item.product.id, item.selectedVariant.size, item.selectedVariant.category, item.quantity - 1)}
-                                                className="p-1 hover:bg-brand-primary/10 transition-colors"
+                                                className="p-3 md:p-1 hover:bg-brand-primary/10 transition-colors"
                                                 aria-label="Decrease quantity"
                                             >
-                                                <Minus className="w-3 h-3 text-brand-primary" />
+                                                <Minus className="w-4 h-4 md:w-3 md:h-3 text-brand-primary" />
                                             </button>
                                             <input
                                                 type="number"
@@ -93,14 +93,14 @@ export function CartDrawer() {
                                                         updateQuantity(item.product.id, item.selectedVariant.size, item.selectedVariant.category, val);
                                                     }
                                                 }}
-                                                className="w-12 text-center text-sm border-x border-brand-primary/20 focus:outline-none focus:bg-brand-light/20"
+                                                className="w-12 text-center text-sm md:text-base border-x border-brand-primary/20 focus:outline-none focus:bg-brand-light/20 py-2 md:py-0"
                                             />
                                             <button
                                                 onClick={() => updateQuantity(item.product.id, item.selectedVariant.size, item.selectedVariant.category, item.quantity + 1)}
-                                                className="p-1 hover:bg-brand-primary/10 transition-colors"
+                                                className="p-3 md:p-1 hover:bg-brand-primary/10 transition-colors"
                                                 aria-label="Increase quantity"
                                             >
-                                                <Plus className="w-3 h-3 text-brand-primary" />
+                                                <Plus className="w-4 h-4 md:w-3 md:h-3 text-brand-primary" />
                                             </button>
                                         </div>
 

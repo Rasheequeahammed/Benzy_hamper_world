@@ -6,6 +6,7 @@ import { products, Product } from '@/types/products';
 import { ProductCard } from '@/components/ProductCard';
 import { ProductListView } from '@/components/ProductListView';
 import { ChevronDown, Grid3x3, List } from 'lucide-react';
+import { SearchBar } from '@/components/SearchBar';
 
 type SortOption = 'name-asc' | 'price-low' | 'price-high';
 
@@ -101,22 +102,28 @@ function SearchContent() {
     };
 
     return (
-        <div className="bg-white min-h-screen py-20">
+        <div className="bg-white min-h-screen py-12 md:py-20">
             <div className="container mx-auto px-4">
 
-                <div className="text-center mb-16 space-y-4">
+                <div className="text-center mb-12 space-y-6">
                     <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-primary">
                         Search Results
                     </h1>
+
+                    {/* Dedicated Search Bar for Results Page */}
+                    <div className="max-w-2xl mx-auto w-full px-2">
+                        <SearchBar />
+                    </div>
+
                     {query && (
-                        <p className="text-brand-primary/60 max-w-2xl mx-auto">
+                        <p className="text-brand-primary/60 max-w-2xl mx-auto pt-2">
                             {searchResults.length > 0
                                 ? `Found ${searchResults.length} result${searchResults.length !== 1 ? 's' : ''} for "${query}"`
                                 : `No results found for "${query}"`
                             }
                         </p>
                     )}
-                    <div className="h-1 w-20 bg-brand-accent mx-auto mt-8" />
+                    <div className="h-1 w-20 bg-brand-accent mx-auto mt-4" />
                 </div>
 
                 {searchResults.length > 0 && (
