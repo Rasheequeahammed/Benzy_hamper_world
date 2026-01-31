@@ -13,23 +13,29 @@ export default function CollectionPage({ params }: { params: { type: string } })
 
     const getCollectionInfo = (type: string) => {
         switch (type) {
-            case 'classics':
+            case 'acrylic':
                 return {
-                    title: 'Zaara Classics',
-                    description: 'Timeless favorites for everyday elegance. (1300+ Items)',
-                    filter: (p: Product) => p.collectionTag === 'Classic' || p.variants.some(v => v.category === 'Economy' && p.collectionTag !== 'Signature')
+                    title: 'Acrylic Collection',
+                    description: 'Modern, transparent elegance for vibrant gifts.',
+                    filter: (p: Product) => p.variants.some(v => v.category === 'Acrylic')
                 };
-            case 'signature':
+            case 'wooden':
                 return {
-                    title: "Zaara's Signature Collection",
-                    description: 'Our exclusive curated selection (34 Items).',
-                    filter: (p: Product) => p.collectionTag === 'Signature'
+                    title: 'Vintage Wooden',
+                    description: 'Rustic charm for organic and earthy hampers.',
+                    filter: (p: Product) => p.variants.some(v => v.category === 'Wooden')
                 };
-            case 'top-quality':
+            case 'metal':
                 return {
-                    title: 'Top Quality',
-                    description: 'Identical essences crafted for the true connoisseur.',
-                    filter: (p: Product) => p.collectionTag === 'Top Quality'
+                    title: 'Luxury Metal',
+                    description: 'Sophisticated gold wire baskets for premium spa kits.',
+                    filter: (p: Product) => p.variants.some(v => v.category === 'Metal')
+                };
+            case 'all':
+                return {
+                    title: 'All Collections',
+                    description: 'Discover our full range of handcrafted hampers.',
+                    filter: () => true
                 };
             default:
                 return null;

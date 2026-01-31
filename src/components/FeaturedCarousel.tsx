@@ -49,10 +49,10 @@ export function FeaturedCarousel() {
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-primary mb-3">
-                        Zaara's Signature Collection
+                        Signature Hamper Collection
                     </h2>
                     <p className="text-brand-primary/60 max-w-2xl mx-auto">
-                        Premium fragrance concentrates inspired by luxury brands – available for wholesale
+                        Premium handcrafted hampers for your most cherished moments.
                     </p>
                     <div className="h-1 w-20 bg-brand-accent mx-auto mt-6" />
                 </div>

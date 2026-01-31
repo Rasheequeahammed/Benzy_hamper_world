@@ -20,10 +20,10 @@ export function CartDrawer() {
         let message = "Hello Zaara Perfumes, I am interested in ordering the following collection:\n\n";
 
         items.forEach(item => {
-            message += `• ${item.quantity}x ${item.product.name} (${item.selectedVariant.category} - ${item.selectedVariant.size}) - AED ${item.selectedVariant.price * item.quantity}\n`;
+            message += `• ${item.quantity}x ${item.product.name} (${item.selectedVariant.category} - ${item.selectedVariant.size}) - ₹${item.selectedVariant.price * item.quantity}\n`;
         });
 
-        message += `\nTotal Estimate: AED ${totalPrice.toFixed(2)}`;
+        message += `\nTotal Estimate: ₹${totalPrice.toFixed(2)}`;
 
         // 2. Encode for URL
         const encodedMessage = encodeURIComponent(message);
@@ -105,7 +105,7 @@ export function CartDrawer() {
                                         </div>
 
                                         <span className="text-sm font-semibold text-brand-accent">
-                                            AED {(item.selectedVariant.price * item.quantity).toFixed(2)}
+                                            ₹{(item.selectedVariant.price * item.quantity).toFixed(2)}
                                         </span>
 
                                         <button
@@ -126,7 +126,7 @@ export function CartDrawer() {
                     <div className="p-6 border-t border-gray-100 bg-gray-50/50">
                         <div className="flex items-center justify-between mb-6">
                             <span className="text-sm uppercase tracking-widest text-gray-500">Total Estimate</span>
-                            <span className="text-2xl font-serif text-brand-primary">AED {totalPrice.toFixed(2)}</span>
+                            <span className="text-2xl font-serif text-brand-primary">₹{totalPrice.toFixed(2)}</span>
                         </div>
                         <button
                             onClick={handleWhatsApp}

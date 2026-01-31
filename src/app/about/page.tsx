@@ -38,9 +38,11 @@ export default function AboutPage() {
                             Our Mission
                         </h2>
                         <p className="text-lg text-brand-primary/70 leading-relaxed">
-                            To inspire businesses worldwide by delivering exceptional fragrance concentrates that
-                            capture the essence of luxury. We believe every entrepreneur deserves access to premium
-                            quality oils that transform their vision into reality—one drop at a time.
+                            "Making every celebration unforgettable."
+                        </p>
+                        <p className="mt-4 text-brand-primary/60 leading-relaxed">
+                            Since 2002, Hamper World has been curating joy through our exquisite gifting solutions.
+                            From humble beginnings in Kerala to becoming a trusted name in luxury gifting, we pour heart and soul into every basket.
                         </p>
                     </div>
 
@@ -48,18 +50,18 @@ export default function AboutPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
                         <div className="text-center p-6 bg-brand-light/20 rounded-sm">
                             <Calendar className="w-10 h-10 text-brand-accent mx-auto mb-4" />
-                            <h3 className="text-3xl font-bold text-brand-primary mb-2">2021</h3>
+                            <h3 className="text-3xl font-bold text-brand-primary mb-2">2002</h3>
                             <p className="text-brand-primary/60">Founded</p>
                         </div>
                         <div className="text-center p-6 bg-brand-light/20 rounded-sm">
                             <Award className="w-10 h-10 text-brand-accent mx-auto mb-4" />
-                            <h3 className="text-3xl font-bold text-brand-primary mb-2">1600+</h3>
-                            <p className="text-brand-primary/60">Fragrance Oils</p>
+                            <h3 className="text-3xl font-bold text-brand-primary mb-2">Premium</h3>
+                            <p className="text-brand-primary/60">Materials</p>
                         </div>
                         <div className="text-center p-6 bg-brand-light/20 rounded-sm">
                             <Users className="w-10 h-10 text-brand-accent mx-auto mb-4" />
-                            <h3 className="text-3xl font-bold text-brand-primary mb-2">100%</h3>
-                            <p className="text-brand-primary/60">Wholesale Focus</p>
+                            <h3 className="text-3xl font-bold text-brand-primary mb-2">Offline</h3>
+                            <p className="text-brand-primary/60">& Online Store</p>
                         </div>
                     </div>
                 </div>
@@ -130,14 +132,14 @@ export default function AboutPage() {
                     <div className="bg-brand-light/20 p-8 rounded-sm text-center">
                         <MapPin className="w-12 h-12 text-brand-accent mx-auto mb-4" />
                         <h3 className="text-xl font-serif font-bold text-brand-primary mb-2">
-                            ZAARA Perfumes
+                            Hamper World
                         </h3>
                         <p className="text-brand-primary/70 mb-6">
-                            Naif Road, Deira<br />
-                            Dubai, UAE
+                            Thalassery, Kannur<br />
+                            Kerala, India
                         </p>
                         <a
-                            href="https://maps.app.goo.gl/GvHRxvZspny1XXd36"
+                            href="https://maps.google.com/?q=Thalassery,Kerala"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-block border-2 border-brand-primary px-8 py-3 text-sm font-medium tracking-widest text-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300"

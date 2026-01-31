@@ -75,7 +75,7 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                                                 {economyVariants.map(v => (
                                                     <div key={v.size} className="flex items-center justify-center gap-2 text-brand-primary/70">
                                                         <span className="text-xs text-brand-primary/40">{v.size}:</span>
-                                                        <span>AED {v.price}</span>
+                                                        <span>₹{v.price}</span>
                                                         <button
                                                             onClick={() => addToCart(product, v.size, v.price, 'Economy', 1)}
                                                             className="p-0.5 rounded-full bg-brand-accent/10 hover:bg-brand-accent hover:text-white text-brand-accent transition-colors"
@@ -98,7 +98,7 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                                                 {inspiredVariants.map(v => (
                                                     <div key={v.size} className="flex items-center justify-center gap-2 text-brand-primary/70">
                                                         <span className="text-xs text-brand-primary/40">{v.size}:</span>
-                                                        <span>AED {v.price}</span>
+                                                        <span>₹{v.price}</span>
                                                         <button
                                                             onClick={() => addToCart(product, v.size, v.price, 'Inspired', 1)}
                                                             className="p-0.5 rounded-full bg-brand-accent/10 hover:bg-brand-accent hover:text-white text-brand-accent transition-colors"
@@ -121,7 +121,7 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                                                 {identicalVariants.map(v => (
                                                     <div key={v.size} className="flex items-center justify-center gap-2 text-brand-primary/70">
                                                         <span className="text-xs text-brand-primary/40">{v.size}:</span>
-                                                        <span>AED {v.price}</span>
+                                                        <span>₹{v.price}</span>
                                                         <button
                                                             onClick={() => addToCart(product, v.size, v.price, 'Identical', 1)}
                                                             className="p-0.5 rounded-full bg-brand-accent/10 hover:bg-brand-accent hover:text-white text-brand-accent transition-colors"
@@ -144,7 +144,7 @@ export function ProductListView({ products, showVariantHeaders = true }: Product
                                         {product.variants.map(v => (
                                             <div key={v.size} className="flex items-center gap-2 text-brand-primary/70">
                                                 <span className="text-xs text-brand-primary/40">{v.size}:</span>
-                                                <span>AED {v.price}</span>
+                                                <span>₹{v.price}</span>
                                                 <button
                                                     onClick={() => addToCart(product, v.size, v.price, v.category, 1)}
                                                     className="p-0.5 rounded-full bg-brand-accent/10 hover:bg-brand-accent hover:text-white text-brand-accent transition-colors"

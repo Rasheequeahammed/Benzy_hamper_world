@@ -74,7 +74,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                                 {product.name}
                             </h1>
                             <p className="text-3xl font-light text-brand-primary/80">
-                                {selectedVariant ? `AED ${selectedVariant.price.toFixed(2)}` : 'Select Option'}
+                                {selectedVariant ? `₹${selectedVariant.price.toFixed(2)}` : 'Select Option'}
                             </p>
                         </div>
 

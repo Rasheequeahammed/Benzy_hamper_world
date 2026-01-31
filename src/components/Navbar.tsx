@@ -13,8 +13,8 @@ export function Navbar() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const handleInquiry = () => {
-        const whatsappNumber = "971588978103";
-        const message = encodeURIComponent("Hello ZAARA! I'm interested in wholesale fragrance oils.");
+        const whatsappNumber = "919526689880";
+        const message = encodeURIComponent("Hello Hamper World! I'm interested in your gift hampers.");
         window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
     };
 
@@ -24,18 +24,17 @@ export function Navbar() {
                 <div className="flex h-20 items-center justify-between">
 
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="relative w-12 h-12 bg-white rounded-xl p-1 shadow-sm border border-brand-primary/5 transition-all duration-300 group-hover:shadow-md group-hover:-translate-y-0.5">
-                            <Image
-                                src="/images/logo.png"
-                                alt="ZAARA PERFUMES Logo"
-                                fill
-                                className="object-contain rounded-lg"
-                                priority
-                            />
+                        <div className="relative flex items-center justify-center w-12 h-12 bg-white rounded-xl shadow-sm border border-brand-primary/5 transition-all duration-300 group-hover:shadow-md group-hover:-translate-y-0.5">
+                            <span className="font-serif text-2xl text-brand-primary">H</span>
                         </div>
-                        <span className="text-xl font-serif font-bold tracking-widest text-brand-primary hidden sm:block group-hover:text-brand-accent transition-colors">
-                            ZAARA PERFUMES
-                        </span>
+                        <div className="flex flex-col">
+                            <span className="text-xl font-serif font-bold tracking-widest text-brand-primary hidden sm:block group-hover:text-brand-accent transition-colors">
+                                HAMPER WORLD
+                            </span>
+                            <span className="text-[0.6rem] uppercase tracking-[0.2em] text-gray-500 hidden sm:block">
+                                Crafting Memories
+                            </span>
+                        </div>
                     </Link>
 
                     {/* Desktop Nav */}

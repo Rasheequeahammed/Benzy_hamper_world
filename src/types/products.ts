@@ -1,6 +1,6 @@
 import productsData from '@/data/products.json';
 
-export type VariantCategory = 'Economy' | 'Inspired' | 'Identical';
+export type VariantCategory = 'Acrylic' | 'Wooden' | 'Metal';
 
 export interface Variant {
     size: string;
@@ -10,7 +10,6 @@ export interface Variant {
 
 export interface Product {
     id: string;
-    originalId: string;
     name: string;
     description: string;
     imageUrl: string;

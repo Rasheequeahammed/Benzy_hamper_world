@@ -21,8 +21,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-    title: 'Zaara Perfumes | Essence of Elegance',
-    description: 'Discover the signature luxury scents of Zaara Perfumes.',
+    title: 'Hamper World | Crafting Memories',
+    description: 'Exquisite hampers for weddings, engagements, and festive celebrations. Based in Kerala since 2002.',
 };
 
 export default function RootLayout({

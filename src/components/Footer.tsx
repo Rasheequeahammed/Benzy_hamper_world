@@ -11,20 +11,15 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="col-span-1 md:col-span-2">
                         <div className="flex items-center gap-4 mb-6 group">
-                            <div className="relative w-16 h-16 bg-white rounded-2xl p-1.5 shadow-lg border border-white/10 transition-transform duration-300 group-hover:scale-105">
-                                <Image
-                                    src="/images/logo.png"
-                                    alt="ZAARA Logo"
-                                    fill
-                                    className="object-contain rounded-xl"
-                                />
+                            <div className="relative flex items-center justify-center w-16 h-16 bg-white rounded-2xl shadow-lg border border-white/10 transition-transform duration-300 group-hover:scale-105">
+                                <span className="font-serif text-4xl text-brand-primary">H</span>
                             </div>
                             <h3 className="text-2xl font-serif font-bold tracking-widest text-white group-hover:text-brand-accent transition-colors">
-                                ZAARA PERFUMES
+                                HAMPER WORLD
                             </h3>
                         </div>
                         <p className="mb-6 max-w-sm text-sm leading-relaxed text-white/60">
-                            Wholesale fragrance oils inspired by world-renowned brands. Serving businesses worldwide since 2021.
+                            Curated luxury hampers for weddings, engagements, and festivals. Creating moments of joy since 2024.
                         </p>
                     </div>
 
@@ -35,8 +30,7 @@ export function Footer() {
                         </h4>
                         <ul className="space-y-4 text-sm text-white/60">
                             <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-                            <li><Link href="/collection/classics" className="hover:text-white transition-colors">Classics</Link></li>
-                            <li><Link href="/collection/signature" className="hover:text-white transition-colors">Signature</Link></li>
+                            <li><Link href="/#collection" className="hover:text-white transition-colors">Collection</Link></li>
                             <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
                             <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
                         </ul>
@@ -48,18 +42,20 @@ export function Footer() {
                             Connect
                         </h4>
                         <div className="mb-6 flex space-x-4">
-                            <a href="https://www.instagram.com/zaara_perfume_?igsh=cml5cjF4aTB2NGpv" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-brand-accent transition-colors"><Instagram className="w-5 h-5" /></a>
+                            <a href="https://www.instagram.com/hamper.world_" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-brand-accent transition-colors"><Instagram className="w-5 h-5" /></a>
                         </div>
-                        <a href="tel:+971588978103" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-2">
-                            +971 58 897 8103
+                        <a href="tel:+919526689880" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-2">
+                            +91 9526689880
                         </a>
-                        <p className="text-xs text-white/40">Email coming soon</p>
+                        <a href="mailto:benzydutyfreeshop@gmail.com" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
+                            benzydutyfreeshop@gmail.com
+                        </a>
                     </div>
 
                 </div>
 
                 <div className="mt-16 border-t border-white/10 pt-8 text-center text-xs text-white/40">
-                    <p>&copy; 2024 ZAARA Perfumes. All rights reserved.</p>
+                    <p>&copy; 2024 Hamper World. All rights reserved.</p>
                 </div>
             </div>
         </footer>

@@ -44,7 +44,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     {product.name}
                 </h3>
                 <p className="mb-3 md:mb-4 font-sans text-xs md:text-sm font-semibold text-brand-accent">
-                    from AED {lowestPrice.toFixed(2)}
+                    from ₹{lowestPrice.toFixed(2)}
                 </p>
 
                 {/* Button */}

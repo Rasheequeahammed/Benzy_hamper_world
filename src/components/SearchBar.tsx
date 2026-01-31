@@ -107,7 +107,7 @@ export function SearchBar() {
                                             </h4>
                                             {/* Show lowest price */}
                                             <span className="text-xs text-brand-accent font-semibold whitespace-nowrap">
-                                                AED {Math.min(...product.variants.map(v => v.price))}
+                                                ₹{Math.min(...product.variants.map(v => v.price))}
                                             </span>
                                         </div>
                                         <p className="text-xs text-brand-primary/50 truncate">
