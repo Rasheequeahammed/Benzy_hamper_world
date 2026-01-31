@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils';
 import { CartProvider } from '@/context/CartContext';
 import { CartDrawer } from '@/components/CartDrawer';
 import { MobileNav } from '@/components/MobileNav';
+import { EventWrapper } from '@/components/EventWrapper';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -31,20 +32,22 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className="scroll-smooth">
+        <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
             <body className={cn(
                 "min-h-screen font-sans",
                 inter.variable,
                 playfair.variable
             )}>
                 <CartProvider>
-                    <Navbar />
-                    <CartDrawer />
-                    <MobileNav />
-                    <main className="flex-grow pb-20 md:pb-0">
-                        {children}
-                    </main>
-                    <Footer />
+                    <EventWrapper>
+                        <Navbar />
+                        <CartDrawer />
+                        <MobileNav />
+                        <main className="flex-grow pb-20 md:pb-0">
+                            {children}
+                        </main>
+                        <Footer />
+                    </EventWrapper>
                 </CartProvider>
             </body>
         </html>

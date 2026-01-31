@@ -179,5 +179,140 @@
       "heart": "Trinkets",
       "base": "Silver"
     }
+  },
+  {
+    "id": "val-choco-1",
+    "name": "Heart of Gold Chocolate Box",
+    "variants": [
+      {
+        "size": "Standard",
+        "price": 3500,
+        "category": "Special"
+      },
+      {
+        "size": "Premium",
+        "price": 5500,
+        "category": "Special"
+      }
+    ],
+    "collectionTag": "Valentine",
+    "eventTags": [
+      "valentines"
+    ],
+    "description": "Luxurious heart-shaped gold box filled with premium assorted chocolates, truffles, and pralines. Perfect for expressing your love.",
+    "imageUrl": "/images/products/special/valentines-chocolate.png",
+    "notes": {
+      "top": "Truffles",
+      "heart": "Pralines",
+      "base": "Chocolate"
+    }
+  },
+  {
+    "id": "val-roses-1",
+    "name": "Romance Deluxe Hamper",
+    "variants": [
+      {
+        "size": "Standard",
+        "price": 4500,
+        "category": "Special"
+      },
+      {
+        "size": "Grand",
+        "price": 7500,
+        "category": "Special"
+      }
+    ],
+    "collectionTag": "Valentine",
+    "eventTags": [
+      "valentines"
+    ],
+    "description": "Beautiful wicker basket with fresh red roses, premium chocolates, champagne, and elegantly wrapped gifts.",
+    "imageUrl": "/images/products/special/valentines-roses.png",
+    "notes": {
+      "top": "Roses",
+      "heart": "Champagne",
+      "base": "Chocolates"
+    }
+  },
+  {
+    "id": "ram-dates-1",
+    "name": "Premium Dates & Dry Fruits Box",
+    "variants": [
+      {
+        "size": "Medium",
+        "price": 3200,
+        "category": "Special"
+      },
+      {
+        "size": "Large",
+        "price": 5200,
+        "category": "Special"
+      }
+    ],
+    "collectionTag": "Ramadan",
+    "eventTags": [
+      "ramadan"
+    ],
+    "description": "Elegant wooden box with premium Medjool dates, mixed nuts, pistachios, almonds, dried apricots, and Arabic sweets.",
+    "imageUrl": "/images/products/special/ramadan-dates.png",
+    "notes": {
+      "top": "Dates",
+      "heart": "Nuts",
+      "base": "Sweets"
+    }
+  },
+  {
+    "id": "ram-prayer-1",
+    "name": "Prayer Essentials Gift Set",
+    "variants": [
+      {
+        "size": "Standard",
+        "price": 4800,
+        "category": "Special"
+      },
+      {
+        "size": "Premium",
+        "price": 7200,
+        "category": "Special"
+      }
+    ],
+    "collectionTag": "Ramadan",
+    "eventTags": [
+      "ramadan"
+    ],
+    "description": "Beautiful basket with prayer rug (janamaz), Quran with stand, tasbih beads, attar perfume, and miswak. A complete spiritual gift.",
+    "imageUrl": "/images/products/special/ramadan-prayer.png",
+    "notes": {
+      "top": "Prayer Rug",
+      "heart": "Quran",
+      "base": "Tasbih"
+    }
+  },
+  {
+    "id": "ram-iftar-1",
+    "name": "Royal Iftar Hamper",
+    "variants": [
+      {
+        "size": "Family",
+        "price": 6500,
+        "category": "Special"
+      },
+      {
+        "size": "Grand",
+        "price": 9500,
+        "category": "Special"
+      }
+    ],
+    "collectionTag": "Ramadan",
+    "eventTags": [
+      "ramadan"
+    ],
+    "description": "Luxurious wicker hamper with dates, fruit juices, Arabic coffee, premium baklava, sherbet, and beautifully wrapped gifts.",
+    "imageUrl": "/images/products/special/ramadan-iftar.png",
+    "notes": {
+      "top": "Baklava",
+      "heart": "Coffee",
+      "base": "Dates"
+    }
   }
 ]

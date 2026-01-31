@@ -10,10 +10,10 @@ const config: Config = {
         extend: {
             colors: {
                 brand: {
-                    primary: "#043927", // Deep Emerald Green
-                    accent: "#D4AF37",  // Gold
-                    light: "#F9F9F9",   // Off-white for backgrounds
-                    dark: "#022216",    // Darker shade for footers/text
+                    primary: "var(--brand-primary)",
+                    accent: "var(--brand-accent)",
+                    light: "var(--brand-light)",
+                    dark: "var(--brand-dark)",
                 },
             },
             fontFamily: {
@@ -25,3 +25,4 @@ const config: Config = {
     plugins: [],
 };
 export default config;
+

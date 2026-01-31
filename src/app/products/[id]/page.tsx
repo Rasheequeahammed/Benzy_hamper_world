@@ -5,12 +5,13 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, Star, Droplets, Wind, Sun, ShoppingBag, Minus, Plus } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, use } from 'react';
 import { useCart } from '@/context/CartContext';
 import { cn } from '@/lib/utils';
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-    const product = products.find((p) => p.id === params.id);
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = use(params);
+    const product = products.find((p) => p.id === id);
     const { addToCart } = useCart();
 
     // Group variants by category

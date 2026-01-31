@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, use } from 'react';
 import { products, Product } from '@/types/products';
 import { ProductCard } from '@/components/ProductCard';
 import { ProductListView } from '@/components/ProductListView';
@@ -9,7 +9,8 @@ import { ChevronDown, Grid3x3, List } from 'lucide-react';
 
 type SortOption = 'name-asc' | 'price-low' | 'price-high';
 
-export default function CollectionPage({ params }: { params: { type: string } }) {
+export default function CollectionPage({ params }: { params: Promise<{ type: string }> }) {
+    const { type } = use(params);
 
     const getCollectionInfo = (type: string) => {
         switch (type) {
@@ -42,7 +43,7 @@ export default function CollectionPage({ params }: { params: { type: string } })
         }
     };
 
-    const info = getCollectionInfo(params.type);
+    const info = getCollectionInfo(type);
     if (!info) return notFound();
 
     // State
@@ -211,7 +212,7 @@ export default function CollectionPage({ params }: { params: { type: string } })
                 ) : (
                     <ProductListView
                         products={displayedProducts}
-                        showVariantHeaders={params.type === 'classics'}
+                        showVariantHeaders={type === 'classics'}
                     />
                 )}
 

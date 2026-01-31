@@ -4,22 +4,35 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/types/products';
 import { ArrowRight } from 'lucide-react';
+import { useEvent } from '@/context/EventContext';
 
 interface ProductCardProps {
     product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+    const { isEventActive, discountPercent, getDiscountedPrice } = useEvent();
+
     // Get the lowest price for display
     const lowestPrice = product.variants.length > 0
         ? Math.min(...product.variants.map(v => v.price))
         : 0;
+
+    // Calculate discounted price if event is active
+    const discountedPrice = getDiscountedPrice(lowestPrice);
 
     // Get available categories
     const categories = Array.from(new Set(product.variants.map(v => v.category)));
 
     return (
         <div className="group relative flex flex-col items-center bg-white p-3 md:p-6 transition-all duration-500 hover:shadow-xl">
+
+            {/* Discount Badge */}
+            {isEventActive && discountPercent > 0 && (
+                <div className="absolute top-2 right-2 z-10 px-2 py-1 bg-red-500 text-white text-xs font-bold rounded-full animate-pulse">
+                    {discountPercent}% OFF
+                </div>
+            )}
 
             {/* Image Container with Hover Effect */}
             <div className="relative mb-6 aspect-[3/4] w-full overflow-hidden bg-gray-50">
@@ -44,9 +57,22 @@ export function ProductCard({ product }: ProductCardProps) {
                 <h3 className="mb-1 md:mb-2 text-sm md:text-lg font-serif font-medium text-brand-primary truncate">
                     {product.name}
                 </h3>
-                <p className="mb-3 md:mb-4 font-sans text-xs md:text-sm font-semibold text-brand-accent">
-                    from ₹{lowestPrice.toFixed(2)}
-                </p>
+
+                {/* Price Display */}
+                {isEventActive && discountPercent > 0 ? (
+                    <div className="mb-3 md:mb-4">
+                        <span className="text-xs text-gray-400 line-through mr-2">
+                            ₹{lowestPrice.toFixed(2)}
+                        </span>
+                        <span className="font-sans text-sm md:text-base font-bold text-red-500">
+                            from ₹{discountedPrice.toFixed(2)}
+                        </span>
+                    </div>
+                ) : (
+                    <p className="mb-3 md:mb-4 font-sans text-xs md:text-sm font-semibold text-brand-accent">
+                        from ₹{lowestPrice.toFixed(2)}
+                    </p>
+                )}
 
                 {/* Button */}
                 <Link

@@ -7,6 +7,12 @@
     --background: 0 0% 100%;
     --foreground: 164 86% 12%;
     /* #043927 */
+    
+    /* Default brand colors - these get overridden by event themes */
+    --brand-primary: #043927;
+    --brand-accent: #D4AF37;
+    --brand-light: #F9F9F9;
+    --brand-dark: #022216;
   }
 }
 
