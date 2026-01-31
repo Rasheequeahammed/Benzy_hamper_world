@@ -31,10 +31,16 @@ export function SearchBar() {
             const searchTerms = query.toLowerCase().split(' ');
             const filtered = products.filter(product => {
                 const nameMatch = product.name.toLowerCase();
-                const idMatch = (product as any).originalId?.toString() || "";
+                const descMatch = product.description.toLowerCase();
+                // Get all categories from variants
+                const categoryMatch = product.variants.map(v => v.category.toLowerCase()).join(' ');
 
-                // Check if all search terms match the name (allowing out of order "Aigner Black")
-                return searchTerms.every(term => nameMatch.includes(term)) || idMatch === query;
+                // Check if any search term matches name, description, or category
+                return searchTerms.some(term =>
+                    nameMatch.includes(term) ||
+                    descMatch.includes(term) ||
+                    categoryMatch.includes(term)
+                );
             }).slice(0, 8); // Limit to 8 results
 
             setResults(filtered);
@@ -59,7 +65,7 @@ export function SearchBar() {
             <form onSubmit={handleSearchSubmit} className="relative">
                 <input
                     type="text"
-                    placeholder="Search fragrance oils..."
+                    placeholder="Search hampers..."
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     className="w-full pl-10 pr-4 py-2 bg-brand-light/50 border border-brand-primary/10 rounded-full text-sm focus:outline-none focus:border-brand-primary/30 focus:bg-white transition-all placeholder:text-brand-primary/40"
@@ -83,7 +89,7 @@ export function SearchBar() {
                     {results.length > 0 ? (
                         <div className="py-2">
                             <div className="px-4 py-2 text-xs font-bold uppercase tracking-widest text-brand-primary/40 border-b border-gray-50 mb-1">
-                                Fragrance Oils
+                                Hampers
                             </div>
                             {results.map(product => (
                                 <Link
@@ -97,6 +103,7 @@ export function SearchBar() {
                                             src={product.imageUrl}
                                             alt={product.name}
                                             fill
+                                            sizes="40px"
                                             className="object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                     </div>
@@ -111,7 +118,7 @@ export function SearchBar() {
                                             </span>
                                         </div>
                                         <p className="text-xs text-brand-primary/50 truncate">
-                                            {product.collectionTag} • {product.variants.length} Options
+                                            {product.variants[0]?.category} • {product.variants.length} Options
                                         </p>
                                     </div>
                                 </Link>
@@ -129,7 +136,7 @@ export function SearchBar() {
                         </div>
                     ) : (
                         <div className="px-4 py-8 text-center text-sm text-brand-primary/50">
-                            No fragrance oils found for "{query}"
+                            No hampers found for "{query}"
                         </div>
                     )}
                 </div>

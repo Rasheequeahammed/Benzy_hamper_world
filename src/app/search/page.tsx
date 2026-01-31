@@ -20,18 +20,38 @@ function SearchContent() {
     const [page, setPage] = useState(1);
     const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
-    // Search logic
+    // Shuffle array helper
+    const shuffleArray = <T,>(array: T[]): T[] => {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+    };
+
+    // Search logic - show all shuffled if empty, otherwise filter
     const searchResults = useMemo(() => {
-        if (!query.trim()) return [];
+        // If no query, return all products shuffled
+        if (!query.trim()) {
+            return shuffleArray(products);
+        }
 
         const searchTerms = query.toLowerCase().split(' ');
         return products.filter(product => {
             const nameMatch = product.name.toLowerCase();
-            const idMatch = (product as any).originalId?.toString() || "";
+            const descMatch = product.description.toLowerCase();
+            // Get all categories from variants
+            const categoryMatch = product.variants.map(v => v.category.toLowerCase()).join(' ');
 
-            // Check if all search terms match the name or if ID matches exactly
-            return searchTerms.every(term => nameMatch.includes(term)) || idMatch === query;
+            // Check if any search term matches name, description, or category
+            return searchTerms.some(term =>
+                nameMatch.includes(term) ||
+                descMatch.includes(term) ||
+                categoryMatch.includes(term)
+            );
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [query]);
 
     // Get unique sizes
@@ -48,9 +68,9 @@ function SearchContent() {
     const processedProducts = useMemo(() => {
         let result = [...searchResults];
 
-        // Filter by collection category
+        // Filter by category
         if (selectedCategories.length > 0) {
-            result = result.filter(p => p.collectionTag && selectedCategories.includes(p.collectionTag));
+            result = result.filter(p => p.variants.some(v => selectedCategories.includes(v.category)));
         }
 
         // Filter by size
@@ -107,7 +127,7 @@ function SearchContent() {
 
                 <div className="text-center mb-12 space-y-6">
                     <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-primary">
-                        Search Results
+                        {query ? 'Search Results' : 'All Hampers'}
                     </h1>
 
                     {/* Dedicated Search Bar for Results Page */}
@@ -115,14 +135,14 @@ function SearchContent() {
                         <SearchBar />
                     </div>
 
-                    {query && (
-                        <p className="text-brand-primary/60 max-w-2xl mx-auto pt-2">
-                            {searchResults.length > 0
+                    <p className="text-brand-primary/60 max-w-2xl mx-auto pt-2">
+                        {query
+                            ? (searchResults.length > 0
                                 ? `Found ${searchResults.length} result${searchResults.length !== 1 ? 's' : ''} for "${query}"`
-                                : `No results found for "${query}"`
-                            }
-                        </p>
-                    )}
+                                : `No results found for "${query}"`)
+                            : `Browse our collection of ${products.length} handcrafted hampers`
+                        }
+                    </p>
                     <div className="h-1 w-20 bg-brand-accent mx-auto mt-4" />
                 </div>
 
@@ -179,7 +199,7 @@ function SearchContent() {
                                 <label className="text-sm font-medium text-brand-primary/60 uppercase tracking-wider">
                                     Collection:
                                 </label>
-                                {['Signature', 'Classic', 'Top Quality'].map(category => (
+                                {['Acrylic', 'Wooden', 'Metal'].map(category => (
                                     <button
                                         key={category}
                                         onClick={() => toggleCategory(category)}

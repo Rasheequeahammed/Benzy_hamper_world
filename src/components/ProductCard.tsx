@@ -27,6 +27,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     src={product.imageUrl}
                     alt={product.name}
                     fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Quick Add Overlay */}

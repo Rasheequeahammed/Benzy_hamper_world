@@ -33,6 +33,7 @@ export function ProductionShowcase() {
                             src={src}
                             alt="Production Sample"
                             fill
+                            sizes="288px"
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>
@@ -47,6 +48,7 @@ export function ProductionShowcase() {
                             src={src}
                             alt="Production Sample"
                             fill
+                            sizes="288px"
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                     </div>

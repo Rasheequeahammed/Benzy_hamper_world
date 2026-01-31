@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { products } from '@/types/products';
-import { useMemo } from 'react';
+import { products, Product } from '@/types/products';
+import { useState, useEffect } from 'react';
 
 // Shuffle array helper
 function shuffleArray<T>(array: T[]): T[] {
@@ -16,9 +16,12 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 export function BentoGrid() {
-    // Get random products from all categories
-    const featuredProducts = useMemo(() => {
-        return shuffleArray(products).slice(0, 6);
+    // Start with a fixed order (first 6 products) for server render
+    const [featuredProducts, setFeaturedProducts] = useState<Product[]>(products.slice(0, 6));
+
+    // Shuffle only on client side to avoid hydration mismatch
+    useEffect(() => {
+        setFeaturedProducts(shuffleArray(products).slice(0, 6));
     }, []);
 
     if (featuredProducts.length < 6) return null;
@@ -48,6 +51,7 @@ export function BentoGrid() {
                             src={featuredProducts[0].imageUrl}
                             alt={featuredProducts[0].name}
                             fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -73,6 +77,7 @@ export function BentoGrid() {
                             src={featuredProducts[1].imageUrl}
                             alt={featuredProducts[1].name}
                             fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -93,6 +98,7 @@ export function BentoGrid() {
                                 src={product.imageUrl}
                                 alt={product.name}
                                 fill
+                                sizes="(max-width: 768px) 50vw, 25vw"
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -114,6 +120,7 @@ export function BentoGrid() {
                                 src={product.imageUrl}
                                 alt={product.name}
                                 fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
