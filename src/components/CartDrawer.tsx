@@ -17,7 +17,7 @@ export function CartDrawer() {
 
     const handleWhatsApp = () => {
         // 1. Format the message
-        let message = "Hello Zaara Perfumes, I am interested in ordering the following collection:\n\n";
+        let message = "Hello Hamper World, I am interested in ordering the following:\n\n";
 
         items.forEach(item => {
             message += `• ${item.quantity}x ${item.product.name} (${item.selectedVariant.category} - ${item.selectedVariant.size}) - ₹${item.selectedVariant.price * item.quantity}\n`;
@@ -29,7 +29,7 @@ export function CartDrawer() {
         const encodedMessage = encodeURIComponent(message);
 
         // 3. Open WhatsApp
-        window.open(`https://wa.me/971588978103?text=${encodedMessage}`, '_blank');
+        window.open(`https://wa.me/919526689880?text=${encodedMessage}`, '_blank');
     };
 
     return (

@@ -15,13 +15,13 @@ export default function AboutPage() {
                     <div className="relative w-28 h-28 mx-auto mb-8 bg-white rounded-3xl p-2 shadow-2xl border border-brand-accent/20 animate-bounce-slow">
                         <Image
                             src="/images/logo.png"
-                            alt="ZAARA Logo"
+                            alt="Hamper World Logo"
                             fill
                             className="object-contain rounded-2xl"
                         />
                     </div>
                     <h1 className="text-5xl md:text-6xl font-serif font-bold text-brand-primary mb-4">
-                        About ZAARA
+                        About Hamper World
                     </h1>
                     <p className="text-lg text-brand-primary/70 max-w-2xl mx-auto">
                         Empowering businesses with premium fragrance oils since 2021
@@ -71,7 +71,7 @@ export default function AboutPage() {
             <section className="py-20 bg-brand-primary/5">
                 <div className="container mx-auto px-4 max-w-4xl">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-primary mb-12 text-center">
-                        What Makes ZAARA Different
+                        What Makes Hamper World Different
                     </h2>
 
                     <div className="space-y-8">
@@ -154,10 +154,10 @@ export default function AboutPage() {
             <section className="py-20 bg-gradient-to-br from-brand-primary to-brand-primary/80 text-white">
                 <div className="container mx-auto px-4 text-center max-w-3xl">
                     <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-                        Ready to Partner With ZAARA?
+                        Ready to Partner With Hamper World?
                     </h2>
                     <p className="text-white/90 text-lg mb-8">
-                        Join hundreds of successful businesses who trust ZAARA for their fragrance oil needs.
+                        Join hundreds of happy customers who trust Hamper World for their gifting needs.
                     </p>
                     <a
                         href="/contact"
