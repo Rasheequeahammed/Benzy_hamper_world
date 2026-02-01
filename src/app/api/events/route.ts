@@ -1,71 +1,54 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { get } from '@vercel/edge-config';
+import { supabaseAdmin } from '@/lib/supabase';
 import eventsData from '@/data/events.json';
 
-// Edge Config ID and Team ID (for writing via Vercel API)
-const EDGE_CONFIG_ID = process.env.EDGE_CONFIG_ID || 'ecfg_x6qqbqbcxqgar0xrcklr0frqzexl';
-const VERCEL_API_TOKEN = process.env.VERCEL_API_TOKEN;
-
-// GET - Read events from Edge Config (production) or local file (development)
+// GET - Read events from Supabase (production) or local file (fallback)
 export async function GET() {
     try {
-        // Try Edge Config first (production)
-        if (process.env.EDGE_CONFIG) {
-            const events = await get('events');
-            if (events) {
-                return NextResponse.json(events);
-            }
+        // Try Supabase first
+        const { data, error } = await supabaseAdmin
+            .from('events_config')
+            .select('config')
+            .eq('id', 1)
+            .single();
+
+        if (error) {
+            console.log('Supabase fetch error, using local data:', error.message);
+            return NextResponse.json(eventsData);
         }
 
-        // Fallback to local file (development or if Edge Config not set)
+        if (data?.config) {
+            return NextResponse.json(data.config);
+        }
+
+        // Fallback to local file
         return NextResponse.json(eventsData);
     } catch (error) {
         console.error('Error fetching events:', error);
-        // Return local data as fallback
         return NextResponse.json(eventsData);
     }
 }
 
-// PUT - Update events via Vercel Edge Config API
+// PUT - Update events in Supabase
 export async function PUT(request: NextRequest) {
     try {
         const updatedEvents = await request.json();
 
-        // In development, just return success (can't write to file in API route)
-        if (!VERCEL_API_TOKEN || process.env.NODE_ENV === 'development') {
-            console.log('Development mode: Events would be saved:', updatedEvents);
-            return NextResponse.json({
-                success: true,
-                message: 'Development mode - changes are temporary',
-                data: updatedEvents
+        // Upsert to Supabase (insert or update)
+        const { error } = await supabaseAdmin
+            .from('events_config')
+            .upsert({
+                id: 1,
+                config: updatedEvents,
+                updated_at: new Date().toISOString()
             });
-        }
 
-        // Update Edge Config via Vercel API
-        const response = await fetch(
-            `https://api.vercel.com/v1/edge-config/${EDGE_CONFIG_ID}/items`,
-            {
-                method: 'PATCH',
-                headers: {
-                    'Authorization': `Bearer ${VERCEL_API_TOKEN}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    items: [
-                        {
-                            operation: 'upsert',
-                            key: 'events',
-                            value: updatedEvents,
-                        },
-                    ],
-                }),
-            }
-        );
-
-        if (!response.ok) {
-            const error = await response.text();
-            console.error('Edge Config update failed:', error);
-            throw new Error(`Failed to update Edge Config: ${error}`);
+        if (error) {
+            console.error('Supabase update error:', error);
+            return NextResponse.json(
+                { success: false, error: error.message },
+                { status: 500 }
+            );
         }
 
         return NextResponse.json({
